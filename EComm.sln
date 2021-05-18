@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommEntities", "ECommEntit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommDatabase", "ECommDatabase\ECommDatabase.csproj", "{E587186C-3D3C-4F4A-A199-8B58AD92940F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommServices", "ECommServices\ECommServices.csproj", "{48AB9F82-56AF-44A3-B9D1-8D919CB5F39F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E587186C-3D3C-4F4A-A199-8B58AD92940F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E587186C-3D3C-4F4A-A199-8B58AD92940F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E587186C-3D3C-4F4A-A199-8B58AD92940F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48AB9F82-56AF-44A3-B9D1-8D919CB5F39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AB9F82-56AF-44A3-B9D1-8D919CB5F39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AB9F82-56AF-44A3-B9D1-8D919CB5F39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AB9F82-56AF-44A3-B9D1-8D919CB5F39F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
