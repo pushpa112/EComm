@@ -12,7 +12,7 @@ namespace ECommWeb.Controllers
     {
         CategoriesService categoryService = new CategoriesService();
 
-        // GET: Category
+       //Lists all the categories inside Index view
         [HttpGet]
         public ActionResult Index()
         {
@@ -22,6 +22,7 @@ namespace ECommWeb.Controllers
             return View(categories);
         }
 
+        // Display Create view
         [HttpGet]
         public ActionResult Create()
         {
@@ -29,6 +30,7 @@ namespace ECommWeb.Controllers
             return View();
         }
 
+        //Display Index view when user post/submit the data to the server
         [HttpPost]
         public ActionResult Create(Category category)
         {

@@ -21,7 +21,7 @@ namespace ECommServices
         public List<Category> GetCategories()
         {
             using (var context = new ECContext())
-            {
+            { 
                 return context.Categories.ToList();
             }
         }
@@ -30,7 +30,7 @@ namespace ECommServices
         {
             using(var context = new ECContext())
             {
-                //Add category to Categories entity in Database
+                //Add category to Categories entity ( it's in memory right now). Call save method to actually save into the DB
                 context.Categories.Add(category);
                 //Save changes to the Database
                 context.SaveChanges();
