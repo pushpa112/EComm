@@ -8,6 +8,7 @@ namespace ECommEntities
 {
   public class Category : BaseEntity
     {
+        public string ImageURL { get; set; }
         public List<Product> Products { get; set; } // one category has multiple products
     }
 }

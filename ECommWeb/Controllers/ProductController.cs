@@ -35,7 +35,9 @@ namespace ECommWeb.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return PartialView();
+            CategoriesService categoryService = new CategoriesService();
+            var categories = categoryService.GetCategories();
+            return PartialView(categories);
         }
 
         [HttpPost]
