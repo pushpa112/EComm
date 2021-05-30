@@ -10,5 +10,6 @@ namespace ECommEntities
     {
         public string ImageURL { get; set; }
         public List<Product> Products { get; set; } // one category has multiple products
+        public bool isFeatured { get; set; }
     }
 }

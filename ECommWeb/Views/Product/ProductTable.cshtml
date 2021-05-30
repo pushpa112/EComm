@@ -5,17 +5,52 @@
 
 <div>
     <form method="post">
-        <input id="searchTxt" name="Search" />
-        <button type="button" id="searchBtn">Search</button>
-    </form>
-    <button type="button" id="newBtn">New</button>
-
+        @*<div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>Search</label>
+                    <input class="form-control" id="searchTxt" name="Search" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Action</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary form-control" type="button" id="searchBtn">Search</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary form-control" type="button" id="newBtn">New</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-md-12">
+                <label>Search</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="input-group">
+                    <input class="form-control" id="searchTxt" name="Search" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" type="button" id="newBtn">New</button>
+            </div>
+        </div>
+    </form>       
 </div>
 
 <h2>ProductTable</h2>
 
 <div>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <td>Product Name</td>
@@ -29,7 +64,16 @@
             {
                 <tr>
                     <td>@product.Name</td>
-                    <td>-</td>
+                    <td>
+                        @if (product.Category != null)
+                        {
+                            <text>@product.Category.Name</text>
+                        }
+                        else
+                        {
+                            <text> -- </text>
+                        }
+                    </td>
                     <td>@product.Price</td>
                     <td>
                         <button class="editBtn" data-id="@product.ID">Edit</button>
@@ -63,7 +107,7 @@
     $("#newBtn").click(function () {
         $.ajax({
             url: '/Product/Create',
-        })
+            })
             .done(function (response) {
                 $("#actionContainer").html(response);
             })
@@ -97,12 +141,12 @@
                     ID: $(this).attr('data-id')
                 }
             })
-                .done(function (response) {
-                    $("#tableContainer").html(response);
-                })
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("FAIL");
-                });
+            .done(function (response) {
+                $("#tableContainer").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
         }
 
     });

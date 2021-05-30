@@ -17,7 +17,7 @@ namespace ECommWeb.Controllers
             try
             {
                 var file = Request.Files[0]; // first file
-                //var fileName = file.FileName;
+                //var fileName = file.FileName; 
                 //it will generate unique name by adding different characters, so that no one can guess image name
                 var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
 
@@ -25,6 +25,7 @@ namespace ECommWeb.Controllers
 
                 file.SaveAs(path); // save file in this path
 
+                //creating anonymous object and returning it 
                 result.Data = new { Success = true, ImageURL = string.Format("/content/images/{0}", fileName) }; 
                
             }

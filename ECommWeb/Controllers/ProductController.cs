@@ -1,5 +1,6 @@
 ﻿using ECommEntities;
 using ECommServices;
+using ECommWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,9 +42,16 @@ namespace ECommWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(NewCategoryViewModel model)
         {
-            productsService.SaveProduct(product);
+            CategoriesService categoriesService = new CategoriesService();
+            var newProduct = new Product();
+            newProduct.Name = model.Name;
+            newProduct.Description = model.Description;
+            newProduct.Price = model.Price;
+          //newProduct.CategoryID = model.CategoryID;
+            newProduct.Category = categoriesService.GetCategory(model.CategoryID);
+            productsService.SaveProduct(newProduct);
             return RedirectToAction("ProductTable");
         }
 

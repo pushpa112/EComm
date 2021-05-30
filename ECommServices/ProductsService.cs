@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace ECommServices
 {
@@ -22,7 +23,7 @@ namespace ECommServices
         {
             using (var context = new ECContext())
             { 
-                return context.Products.ToList();
+                return context.Products.Include(x => x.Category).ToList();
             }
         }
 
@@ -30,6 +31,8 @@ namespace ECommServices
         {
             using(var context = new ECContext())
             {
+                //Add new product to existed category
+                context.Entry(product.Category).State = EntityState.Unchanged;
                 //Add category to Categories entity ( it's in memory right now). Call save method to actually save into the DB
                 context.Products.Add(product);
                 //Save changes to the Database

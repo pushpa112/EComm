@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommDatabase
 {
-   public class ECContext : DbContext
+   public class ECContext : DbContext, IDisposable
     {
         // generate database inside this connection string
         public ECContext() : base("ECommConnection") 
